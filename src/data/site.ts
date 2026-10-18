@@ -177,7 +177,7 @@ const templateSiteConfig: SiteConfig = {
 export const siteConfig: SiteConfig = {
   ...templateSiteConfig,
   name: "Pellicule",
-  description: "Describe the video you want. Your agent builds it with Pellicule. No Vue experience required.",
+  description: "Pellicule turns Vue components into MP4 videos. Make animations, product intros and reusable video templates with code.",
   repoUrl: "https://github.com/sailscastshq/pellicule-docs",
   links: [
     { label: "Get started", href: "/quickstart" },
