@@ -1,47 +1,77 @@
 ---
-title: Quickstart
-description: Guide a new reader through one useful workflow and show them how to verify it.
+title: Make your first video
+description: Give your agent the Pellicule skill and a brief. Get a rendered MP4.
 ---
+Make a three-second title card with a fade-in and a short upward movement. Your agent handles the Vue code and the render; you review the result.
 
-A strong quickstart produces one meaningful result. Replace the placeholders
-below with the shortest supported path for your product.
+## 1. Open a project folder
 
-## Before you begin
+Open an empty folder in a coding agent that can edit local files and run terminal commands. You need Node.js with npm and FFmpeg available on your machine. Your agent will check them before rendering.
 
-List only the requirements needed for this workflow:
+This walkthrough was verified on macOS with Node.js 24.14.1 and FFmpeg 8.0.1.
 
-- An account or credential, when required
-- A supported runtime, device, browser, or operating system
-- Permission to create or change the resource used in the example
+## 2. Install the Pellicule skill
 
-<Steps>
-  <Step title="Install the required tool">
-    Give readers one recommended installation command.
+In that folder, run the command from [Pellicule's official skill instructions](https://github.com/sailscastshq/pellicule/tree/main/skills):
 
-    ```bash
-    npm install your-package
-    ```
-  </Step>
-  <Step title="Add the minimum configuration">
-    Include only the values needed for the first successful run.
+```bash
+npx skills add sailscastshq/pellicule/skills
+```
 
-    ```bash
-    your-cli init
-    ```
-  </Step>
-  <Step title="Complete the first task">
-    Use a realistic example that produces an observable result.
+Choose your agent in the installer. For Codex, this noninteractive variant was also tested:
 
-    ```bash
-    your-cli start
-    ```
-  </Step>
-  <Step title="Verify the result">
-    State exactly what the reader should see and how to recover when it does not appear.
-  </Step>
-</Steps>
+```bash
+npx --yes skills add sailscastshq/pellicule/skills --agent codex --yes
+```
 
-## Choose the next task
+The installer should report that the `pellicule` skill is installed. Open a fresh agent session in the same folder if the skill is not visible to your current session. Tell your agent to use it explicitly.
 
-Link to the guide that naturally follows this result. Avoid ending the reader’s
-journey with a generic list of every feature.
+## 3. Give your agent this brief
+
+Copy this into your agent:
+
+```text
+Use the installed pellicule skill to make my first video.
+
+Check Node.js, npm, and FFmpeg first. If FFmpeg is missing, tell me what
+is needed before continuing; do not install system software for me.
+
+Work in a new first-video subfolder. Initialize an npm project and install
+pellicule@0.4.0 and vue@3.5.43 with --save-exact. Install Playwright Chromium
+with npx playwright install chromium if needed.
+
+Create Video.vue: a 1280 × 720 title card on a dark navy background.
+Show “Hello, video.” in large white type with a small violet label above it.
+Fade the text from invisible to visible and move it upward 24 pixels during
+frames 0–20, then hold it. Use system fonts and no remote assets.
+Keep all animation driven by Pellicule's frame number.
+
+Render it with:
+npx pellicule Video.vue -d 90 -f 30 -w 1280 -h 720 -o first-video.mp4
+
+Check that the file exists and, if FFprobe is available, verify 90 frames,
+30 fps, 1280 × 720, and a three-second duration. Give me the local file path
+and summarize what you actually verified. Do not upload or publish it.
+```
+
+The skill teaches the agent how to write the component and render it. You can change the words or colors in the brief without learning Vue first.
+
+## 4. Review your video
+
+Open the `first-video.mp4` path your agent returns. The title should fade and settle into place during the first second, then remain visible until the clip ends.
+
+<video controls playsInline preload="metadata" poster="/examples/first-video.png" style={{ width: '100%', borderRadius: '12px' }} aria-label="Reference title card rendered with Pellicule">
+  <source src="/examples/first-video.mp4" type="video/mp4" />
+  <a href="/examples/first-video.mp4">Download the reference video</a>
+</video>
+
+This is the tested reference result. Your agent's design may differ; check the timing, dimensions, and file rather than expecting identical pixels. [Download the reference component](/examples/Video.vue) if you want to reproduce this exact design.
+
+## If you get stuck
+
+- **The agent cannot see the skill:** confirm installation completed in this project folder, start a fresh session there, and ask it to use `pellicule`.
+- **FFmpeg is missing:** install it for your operating system, then ask your agent to check `ffmpeg -version` again.
+- **Chromium is missing:** ask the agent to run `npx playwright install chromium` inside the video project.
+- **The render fails:** paste the actual error back to your agent. It should report the failed command and resolve that error before claiming success.
+
+Next, [ask for a longer version or a different format](/guides/timing-and-output). The [manual guide](/guides/edit-the-source) is available if you want to inspect or edit the code yourself.

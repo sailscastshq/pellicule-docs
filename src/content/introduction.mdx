@@ -1,45 +1,27 @@
 ---
-title: Introduction
-description: Give readers a clear path from their first question to a result they can verify.
+title: Pellicule
+description: Describe the video you want. Your agent builds it with Pellicule. No Vue experience required.
 mode: home
 ---
+<Hero title="Pellicule" subtitle="Describe the video you want. Your agent builds it with Pellicule. No Vue experience required." primaryLabel="Make your first video" primaryHref="/quickstart" />
 
-<Hero
-  title="Build documentation around the reader"
-  subtitle="Start with a useful first result, organize what follows, and publish every format from one reviewable source."
-  primaryLabel="Get started"
-  primaryHref="/quickstart"
-  secondaryLabel="Publish your docs"
-  secondaryHref="/guides/create-a-site"
-/>
+<video controls playsInline preload="metadata" poster="/examples/first-video.png" style={{ width: '100%', borderRadius: '12px' }} aria-label="A three-second title card rendered with Pellicule">
+  <source src="/examples/first-video.mp4" type="video/mp4" />
+  <a href="/examples/first-video.mp4">Watch the example MP4</a>
+</video>
 
-## Build the reader journey
+## From an idea to an MP4
 
-Begin with the task that brings most readers to your documentation, then make
-the next useful step obvious.
+Make a product intro, an announcement, or a reusable video template with a coding agent. Install Pellicule's official skill, describe what you want, and have your agent create and render the video locally.
 
-<CardGroup cols="2">
-  <Card title="Write your quickstart" icon="party-horn" href="/quickstart">
-    Turn prerequisites, setup, one realistic task, and verification into a short path.
-  </Card>
-  <Card title="Organize your navigation" icon="grid-round" href="/customization">
-    Group related tasks and references around how people use your product.
-  </Card>
-  <Card title="Document your API" icon="code-simple" href="/api">
-    Replace `openapi.yaml` to publish browsable endpoint docs with a live playground.
-  </Card>
-  <Card title="Learn the Thally workflow" icon="wrench" href="/guides/create-a-site">
-    Create, publish, and update sites from the Cloud dashboard, the CLI, or your AI tools.
-  </Card>
-</CardGroup>
+The skill gives your agent Pellicule's setup, animation, timing, and rendering guidance. Pellicule uses Vue underneath; your agent can write the components for you. You direct the result and review the finished video.
 
-## Publish from one source
+## Start small, then refine
 
-Thally turns the same reviewed content into HTML, search, agent discovery files,
-Markdown mirrors, and a read-only MCP surface — so people and AI tools read the
-same, current answer. Add only the locales your readers need.
+[Make your first video](/quickstart) with a copyable prompt and a three-second output. You need a coding agent that can work with local files and a terminal, Node.js, and FFmpeg. You do not need an existing Vue app.
 
-<Note type="info" title="Start with the product, not the template">
-  Replace this page with the questions, terminology, and workflows your readers
-  already use. Keep `docs.json` focused on the path between those tasks.
-</Note>
+Then [change the timing and output](/guides/timing-and-output) with follow-up prompts. If you prefer to work directly in code, the [manual example](/guides/edit-the-source) includes the complete tested component.
+
+Pellicule captures frames in a browser and encodes them with FFmpeg. Your project stays editable, so you can ask for another variation without starting over.
+
+[Official agent skill](https://github.com/sailscastshq/pellicule/tree/main/skills) · [Full Pellicule documentation](https://docs.sailscasts.com/pellicule)

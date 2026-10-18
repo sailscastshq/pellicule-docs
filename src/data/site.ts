@@ -157,7 +157,7 @@ const brandPresets: Record<BrandPresetKey, BrandConfig> = {
   },
 }
 
-const brandPreset: BrandPresetKey = 'primary'
+const brandPreset: BrandPresetKey = 'secondary'
 
 const templateSiteConfig: SiteConfig = {
   name: 'Documentation',
@@ -173,16 +173,15 @@ const templateSiteConfig: SiteConfig = {
   brandPresets,
 }
 
-// Managed by Thally Cloud onboarding.
+// Managed site identity; content and brand defaults stay in source control.
 export const siteConfig: SiteConfig = {
   ...templateSiteConfig,
-  name: "Pellicule Docs",
-  description: "Create videos with Vue. Learn to build your first animation, control its timing, and render an MP4 with Pellicule.",
+  name: "Pellicule",
+  description: "Describe the video you want. Your agent builds it with Pellicule. No Vue experience required.",
   repoUrl: "https://github.com/sailscastshq/pellicule-docs",
   links: [
     { label: "Get started", href: "/quickstart" },
-    { label: "Support", href: "https://github.com/sailscastshq/pellicule-docs/issues/new" },
-    { label: "GitHub", href: "https://github.com/sailscastshq/pellicule-docs" },
-    { label: "Changelog", href: "/changelog" },
+    { label: "Source", href: "https://github.com/sailscastshq/pellicule-thally-docs" },
+    { label: "Official docs", href: "https://docs.sailscasts.com/pellicule" },
   ],
 };
